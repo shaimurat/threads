@@ -3,12 +3,12 @@ package models
 import "time"
 
 type Comment struct {
-	ID        string
+	ID        uint
 	Text      string
 	Likes     uint
 	Dislikes  uint
 	UpdatedAt time.Time
 	CreatedAt time.Time
-	UserId    string
-	TretId    string
+	UserId    uint
+	TretId    uint
 }
