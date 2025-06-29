@@ -25,3 +25,6 @@ func (uc *UserUC) Delete(id string) error {
 func (uc *UserUC) GetUser(id string) (models.User, error) {
 	return uc.userRepository.GetUser(id)
 }
+func (uc *UserUC) GetUserByEmail(email string) (models.User, error) {
+	return uc.userRepository.GetUserByEmail(email)
+}

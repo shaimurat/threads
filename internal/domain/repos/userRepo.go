@@ -7,4 +7,5 @@ type UserRepo interface {
 	Update(user models.User) error
 	Delete(id string) error
 	GetUser(id string) (models.User, error)
+	GetUserByEmail(email string) (models.User, error)
 }

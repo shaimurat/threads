@@ -9,6 +9,9 @@ type Comment struct {
 	Dislikes  uint
 	UpdatedAt time.Time
 	CreatedAt time.Time
-	UserId    uint
-	TretId    uint
+	UserID    uint
+	TretID    uint
+
+	User User
+	Tret Tret
 }

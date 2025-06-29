@@ -11,4 +11,6 @@ type Tret struct {
 	UpdatedAt   time.Time
 	CreatedAt   time.Time
 	UserID      uint
+
+	User User
 }

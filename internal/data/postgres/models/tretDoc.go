@@ -1,16 +1,16 @@
-package models
+package postgreModels
 
 import "time"
 
 type TretDoc struct {
-	ID          uint      `gorm:"primary_key; auto_increment;"`
-	Theme       string    `gorm:"not null; size:50;"`
-	Description string    `gorm:"not null"`
-	Likes       uint      `gorm:"default:0"`
-	Dislikes    uint      `gorm:"default:0"`
-	UpdatedAt   time.Time `gorm:"default:CURRENT_TIMESTAMP; autoUpdateTime"`
-	CreatedAt   time.Time `gorm:"default:CURRENT_TIMESTAMP; autoCreateTime"`
-	UserID      uint      `gorm:"not null"`
+	ID          uint      `gorm:"primaryKey;autoIncrement" json:"id"`
+	Theme       string    `gorm:"not null;size:50" json:"theme"`
+	Description string    `gorm:"not null" json:"description"`
+	Likes       uint      `gorm:"default:0" json:"likes"`
+	Dislikes    uint      `gorm:"default:0" json:"dislikes"`
+	UpdatedAt   time.Time `gorm:"default:CURRENT_TIMESTAMP;autoUpdateTime" json:"updatedAt"`
+	CreatedAt   time.Time `gorm:"default:CURRENT_TIMESTAMP;autoCreateTime" json:"createdAt"`
+	UserID      uint      `gorm:"not null" json:"userId"`
 
-	User UserDoc `gorm:"foreignKey:UserID; constraint:onCascade:DELETE"`
+	User UserDoc `gorm:"foreignKey:UserID;constraint:onDelete:CASCADE" json:"user"`
 }

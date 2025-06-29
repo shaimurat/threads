@@ -1,9 +1,10 @@
-package models
+package postgreModels
 
-type Reaction struct {
-	isLike bool    `gorm:"not null"`
-	UserID uint    `gorm:"not null"`
-	TretID uint    `gorm:"not null"`
-	User   UserDoc `gorm:"foreignKey:UserID; constraint:onCascade:DELETE"`
-	Tret   TretDoc `gorm:"foreignKey:TretID; constraint:onCascade:DELETE"`
+type ReactionDoc struct {
+	IsLike bool `gorm:"not null" json:"isLike"`
+	UserID uint `gorm:"not null;uniqueIndex:idx_user_tret" json:"userId"`
+	TretID uint `gorm:"not null;uniqueIndex:idx_user_tret" json:"tretId"`
+
+	User UserDoc `gorm:"foreignKey:UserID;constraint:onDelete:CASCADE" json:"user"`
+	Tret TretDoc `gorm:"foreignKey:TretID;constraint:onDelete:CASCADE" json:"tret"`
 }

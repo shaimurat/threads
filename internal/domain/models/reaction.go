@@ -2,6 +2,9 @@ package models
 
 type Reaction struct {
 	IsLike bool
-	UserId uint
-	TretId uint
+	UserID uint
+	TretID uint
+
+	User User
+	Tret Tret
 }
